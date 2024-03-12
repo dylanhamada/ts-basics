@@ -33,7 +33,7 @@ names.forEach((s) => {
   console.log(s.toUpperCase());
 });
 
-// Types can be combined in a "union", like this function that can operate on strings or numbers
+// Types can be combined in a "union", like this function that can take strings or numbers as arguments
 function printId(id: number | string) {
   console.log('Your ID is: ' + id);
 }
