@@ -45,6 +45,38 @@ user[0].toFixed;
 // if the variable types are numbers, we only need to declare the type of the first enum, and TypeScript
 // will automatically generate the others
 // if the variable types are strings or other variable types, we need to explicitly declare them
-enum Size { Small = 1, Medium, Large };
+// if we define an enum as a constant with the 'const' keyword, the generated JavaScript will be
+// less verbose, but if we only define it with 'enum', the generated JS will be very verbose
+const enum Size { Small = 1, Medium, Large };
 // we access the value of an enum the following way
 let mySize: Size = Size.Medium;
+console.log(mySize);
+
+// function parameters and return types should be annotated in TypeScript like this
+// annotating the return type is beneficial because it generates TypeScript compiler errors if we
+// mistakenly use the wrong variable types
+function calculateTax(income: number, taxYear: number): number {
+  if (taxYear < 2022)
+    return income * 1.2;
+  return income * 1.3;
+}
+
+// changing the "noUnusedParameters" property in tsconfig.json will remove the TypeScript compiler 
+// error generated if we declare a function parameter but don't use it in the function
+
+// changing the "noImplicitReturns" property in tsconfig.json will remove the TypeScript compiler
+// error generated if our function does not return a value
+
+// the "noUnusedLocals" property in tsconfig.json will generate a TypeScript compiler error if we
+// declare local variables in a function but do not use them
+
+// we can declare a function parameter as optional in TypeScript with the following syntax
+// if we do this, we must ensure that the "hours" parameter is used in the function, and if it
+// is not defined, that there is a way to supply a default value to it
+function calculateIncome(wage: number, hours?: number): number {
+  return wage * (hours || 40);
+}
+
+function calculateTip(subtotal: number, tipPercentage = 20): number {
+  return subtotal * tipPercentage;
+}

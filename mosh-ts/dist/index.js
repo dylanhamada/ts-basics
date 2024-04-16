@@ -1,2 +1,14 @@
 "use strict";
 let age = 20;
+let sales = 123456789;
+let course = 'TypeScript';
+let is_published = true;
+let level;
+let numbers = [1, 2, 3];
+let ints = [9, 8, 7];
+numbers.forEach(n => n.valueOf);
+let user = [1, 'Dylan'];
+user[0].toFixed;
+;
+let mySize = 2;
+console.log(mySize);
